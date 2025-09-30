@@ -12,3 +12,5 @@ package-lock.json
 Thumbs.db
 # ignore the Linux specific files
 lost+found
+
+dist
