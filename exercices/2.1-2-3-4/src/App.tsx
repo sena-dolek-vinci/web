@@ -1,4 +1,42 @@
+interface CinemaProps {
+  name : string; 
+  movie1: Movie; 
+  movie2: Movie;
+}
+
+interface PageTitleProps {
+  titlre: string;
+}
+
+interface Movie {
+  title: string; 
+  director: string;
+}
+
 const App = () => {
+  const pageTitle = "Informations sur les films dans les cinémas";
+
+  const cinema1Name =" UGC DeBrouckère";
+  const movie1 = {
+    title: " HAIKY-THE DUMPSTER BATTLE",
+    director: "Susumu Mitsunaka",
+  };
+  const movie2 = {
+    title: "GOODBYE JULIA", 
+    director: "Mohamed Kordofani",
+  };
+  const cinema2Name = "UGC Toison d'Or";
+  const movie3 = {
+    title: "THE WATCHERS" , 
+    director: "Ishana Night Shyamalan",
+  };
+  const movie4 = {
+    title: "BAD BOYS: RIDE OR DIE" , 
+    director: "Adil El Arbi et Bilall Fallah",
+  };
+
+  
+/*const App = () => {
   const pageTitle = "Informations sur les films dans les cinémas";
 
   const cinema1Name = "UGC DeBrouckère";
@@ -12,8 +50,8 @@ const App = () => {
   const cinema2Movie1Director = "Director C";
   const cinema2Movie2Title = "Film 2 - Toison d'Or";
   const cinema2Movie2Director = "Director D";
-
- /* return ( <strong> : balise qui sert a mettre du texte en valeur , en gras 
+*/ 
+/* return ( <strong> : balise qui sert a mettre du texte en valeur , en gras 
     <div> : element parent qui contient toute la page 
         <h1> : balise qui met u titre de niveau 1 
       <h1>{pageTitle}</h1>  : on insere la valeur de la variable pageTitle 
@@ -64,7 +102,7 @@ const App = () => {
 
 
 //ce qui faut affiche a l'ecran :  titre et les cinma 
-return ( 
+/*return ( 
   <div>
     <PageTitle title={pageTitle}/> 
 
@@ -84,10 +122,28 @@ return (
     />
   </div>
 );
-};
+};*/
 // composant PageTitle : fonction fleche ( arrow)  
 // fonction qui recoit un objet props qui contiznt un seul element : title de type string 
 // et renvoi un titre html niveau 1 qui affiche la valeur recue 
+return (
+  <div>
+    <PageTitle title={pageTitle} />
+
+    <Cinema
+      name={cinema1Name}
+      movie1={movie1}
+      movie2={movie2}
+    />
+    <Cinema
+      name={cinema2Name}
+      movie1={movie3}
+      movie2={movie4}
+    />
+
+  </div>  
+  );
+};
 const PageTitle = (props: { title: string}) => {
   return <h1>{props.title}</h1>;
 }
@@ -95,10 +151,8 @@ const PageTitle = (props: { title: string}) => {
 
 const Cinema = (props: { 
   name:string;
-  movie1Title: string; 
-  movie1Director: string; 
-  movie2Title: string;
-  movie2Director: string;
+  movie1: Movie;
+  movie2: Movie;
 }) => ( // et affichera  
   // nom di cinema 
   // cree une liste des films
@@ -110,12 +164,12 @@ const Cinema = (props: {
     <h2>{props.name}</h2>
     <ul>
       <li>
-        <strong>{props.movie1Title}</strong> - Réalisateur : {" "}
-        {props.movie1Director}
+        <strong>{props.movie1.title}</strong> - Réalisateur : {" "}
+        {props.movie1.director}
       </li>
       <li>
-        <strong>{props.movie2Title}</strong> - Réalisateur : {" "}
-        {props.movie2Director}
+        <strong>{props.movie2.title}</strong> - Réalisateur : {" "}
+        {props.movie2.director}
       </li>
     </ul>
   </div>
@@ -129,4 +183,14 @@ et les utiliser a l'interieur d'un autre ( comme <App />)
 */ 
 /* props = les informations que tu send a un composant pour qu'il affcihe quelque chose de personnalisée 
  */
+
+/** 2.2 : 
+ * " qu'un type abtrait Movie soit cree" etc ..
+ * "type abstrait" --> veut dire "definit un type en TS"
+ * il existe 2 manieres en TS : soit tu utilises "interface" ou "type"
+ * on doit cree des types pour decrire les data (films ...)
+ * rendre le code plus propre et securise avec ts 
+ * tu vas ajouter tes interfaces tout en haut 
+ * 
+ * / */
 export default App;
