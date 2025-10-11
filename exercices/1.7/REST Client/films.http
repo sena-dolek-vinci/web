@@ -65,17 +65,17 @@ Content-Type: application/json
 
 
 ### Delete pizza identified by 2
-DELETE {{baseUrl}}/films/1
+DELETE {{baseUrl}}/films/2
 
 
 
 ### Update film with ID == 2
-PATCH {{baseUrl}}/films/2
+PATCH {{baseUrl}}/films/4
 Content-Type: application/json
 
 {
     "title":"Star Wars: Episode II – Attack of the Clones",
-    "budget": 115
+    "budget": 105
 }
 
 ### Try to update film with ID == 2 with empty param
