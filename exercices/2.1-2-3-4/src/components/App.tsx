@@ -1,40 +1,49 @@
-interface CinemaProps {
-  name : string; 
-  movie1: Movie; 
-  movie2: Movie;
-}
+import Cinema from "./Cinema";
+import PageTitle from "./PageTitle";
+import type { Movie } from "../types";
 
-interface PageTitleProps {
-  titlre: string;
-}
 
-interface Movie {
-  title: string; 
-  director: string;
-}
+
 
 const App = () => {
   const pageTitle = "Informations sur les films dans les cinémas";
 
   const cinema1Name =" UGC DeBrouckère";
-  const movie1 = {
+  const moviesCinema1: Movie[] = [{
     title: " HAIKY-THE DUMPSTER BATTLE",
     director: "Susumu Mitsunaka",
-  };
-  const movie2 = {
-    title: "GOODBYE JULIA", 
+  }
+  ,{
+    title: "GOODBYE JULIA",
     director: "Mohamed Kordofani",
-  };
+  },
+  {
+    title: "INCEPTION",
+    director: "Christopher Nolan",
+  },
+  {
+    title: "PARASITE",
+    director: "Bong Joon-ho",
+  }];
   const cinema2Name = "UGC Toison d'Or";
-  const movie3 = {
+  const moviesCinema2: Movie[]= [
+    {
     title: "THE WATCHERS" , 
     director: "Ishana Night Shyamalan",
-  };
-  const movie4 = {
-    title: "BAD BOYS: RIDE OR DIE" , 
-    director: "Adil El Arbi et Bilall Fallah",
-  };
-
+  },
+  {
+    title: "BAD BOYS: RIDE OR DIE",
+    director: "Adil El Arbi, Bilall Fallah",
+  },
+  {
+    title: "TENET",
+    director: "Christopher Nolan",
+  },
+  {
+    title: "THE IRISHMAN",
+    director: "Martin Scorsese",
+  } , ];
+  
   
 /*const App = () => {
   const pageTitle = "Informations sur les films dans les cinémas";
@@ -132,49 +141,21 @@ return (
 
     <Cinema
       name={cinema1Name}
-      movie1={movie1}
-      movie2={movie2}
+      movies={moviesCinema1}
     />
     <Cinema
       name={cinema2Name}
-      movie1={movie3}
-      movie2={movie4}
+      movies={moviesCinema2}
     />
 
   </div>  
   );
 };
-const PageTitle = (props: { title: string}) => {
-  return <h1>{props.title}</h1>;
-}
-// composant(fonction) Cinema : qui recoit plusieurs props : name , movie1title/movie1Director  , movie2title/movie2Director
 
-const Cinema = (props: { 
-  name:string;
-  movie1: Movie;
-  movie2: Movie;
-}) => ( // et affichera  
-  // nom di cinema 
-  // cree une liste des films
-  // chaque ligne a un film avec son realisateur a cote 
-  // ex : UGC DeBrouckère
-    // • Film 1 – DeBrouckère – Réalisateur : Director A
-    // • Film 2 – DeBrouckère – Réalisateur : Director B
-  <div> 
-    <h2>{props.name}</h2>
-    <ul>
-      <li>
-        <strong>{props.movie1.title}</strong> - Réalisateur : {" "}
-        {props.movie1.director}
-      </li>
-      <li>
-        <strong>{props.movie2.title}</strong> - Réalisateur : {" "}
-        {props.movie2.director}
-      </li>
-    </ul>
-  </div>
-)
-/* react sert a creer des pg web interactives 
+
+export default App;
+
+/*react sert a creer des pg web interactives 
 mais au lieu d'ecrire tout le html d'un seul bloc --> on decoupe la page en ptt morceaux reutilisables ( = composants )
 COMPOSANT = une fonction JS qui retourne du html pour qu'il soit affiché a l'ecran 
 en react , chaque partie de l'ecran est un composant (une fonction qui "retourne" du html)
@@ -192,5 +173,5 @@ et les utiliser a l'interieur d'un autre ( comme <App />)
  * rendre le code plus propre et securise avec ts 
  * tu vas ajouter tes interfaces tout en haut 
  * 
- * / */
-export default App;
+ * / .*/
+
