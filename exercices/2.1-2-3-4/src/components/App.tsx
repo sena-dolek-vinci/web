@@ -3,13 +3,13 @@ import PageTitle from "./PageTitle";
 import type { Movie } from "../types";
 import Header from "./Header";
 import Footer from "./Footer";
+import "./App.css";
 
 
 
 
 const App = () => {
   const pageTitle = "Informations sur les films dans les cinémas";
-
   const cinema1Name =" UGC DeBrouckère";
   const moviesCinema1: Movie[] = [{
     title: " HAIKY-THE DUMPSTER BATTLE",
