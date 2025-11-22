@@ -1,4 +1,5 @@
 interface Movie {
+    id:number
     title: string;
     director: string; 
     duration: number;
@@ -11,5 +12,7 @@ interface MovieContext {
     onMovieAdded: (newMovie: Movie) => void;
 }
 
+type NewMovie = Omit<Movie, 'id'>;
+// veut dire : Crée un type NewMovie identique à Movie, mais SANS la propriété id.
 
-export type { Movie , MovieContext };
+export type { Movie , MovieContext , NewMovie};
