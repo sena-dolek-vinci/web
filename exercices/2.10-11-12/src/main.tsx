@@ -8,6 +8,8 @@ import HomePage from "./components/pages/HomePage";
 import App from "./components/App";
 import CinemaPage from "./components/pages/CinemaPage";
 import MovieListPage from "./components/pages/MovieListPage";
+import AddMovieForm from "./components/AddMovieForm";
+import AddMoviePage from "./components/pages/AddMoviePage";
 
 // createBrowserRouter : fonction qui declare toutes les pages (routes) de ton app
  // on cree une liste de routes : c comme une carte qui dit : " quelle url = quelle page "
@@ -29,7 +31,11 @@ const router = createBrowserRouter([
       { // Movies
         path: "movie-list",
         element: <MovieListPage />,
-      }
+      },
+      {
+        path: "add-movie",
+        element: <AddMoviePage />
+      },
     ],
   }, 
   
