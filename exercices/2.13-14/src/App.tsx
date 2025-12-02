@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
-import './App.css';
+
 //import { response } from 'express';
 
 // pq creer une interface joke? Quand tu récupères des données d’une API, tu obtiens un objet dont tu ne contrôles pas la structure.
@@ -25,10 +25,7 @@ const App = () => {
   //const [count, setCount] = useState(0)
 
 
-  // execute du code apres que le composant s'affichge 
-  // en gros : qd la page se harge -> va chercher une blague 
-  useEffect(() => {
-
+  const fetctJoke = () => {
     //demande a l'api JokeApi : "envoi-moi une blague unique , n'importe quelle categorie"
     // a ce stade , pas encore de données n tu as une promise 
     fetch("https://v2.jokeapi.dev/joke/Any?type=single")
@@ -45,6 +42,16 @@ const App = () => {
         category: data.category ?? "Unknown",
       });
     });
+  }
+
+
+  // s'execute une fois qd la page est affichée grave au []
+  useEffect(() => {
+    // si on n'affiche une premier blague (enlever fetctJoke() , la page reste vide)
+    fetctJoke(); // charge une premier blague des le debut 
+    setInterval(fetctJoke , 10000);// toutes les 10 sec , il recharger automatiquement une nouvelle blague 
+
+    
   } , [] ); //s'execute une seule fois au chargement du composant
   if(!joke) {
     return <p>Loading...</p>;
@@ -64,7 +71,7 @@ const App = () => {
             </p>
       </blockquote>
       <p>
-      <cite>https://v2.jokeapi.dev</cite>
+      <cite>https://v2.jokeapi.dev/joke.category</cite>
       </p>
     </div>
   )
