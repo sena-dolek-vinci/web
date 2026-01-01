@@ -1,6 +1,7 @@
 # ignore all node_modules folders and nested folders & files
 node_modules
 # ignore the specific VS Code configuration parameters
+<<<<<<< HEAD
 # .vscode
 # ignore the specific packages versions installed by the developper
 package-lock.json
@@ -19,3 +20,18 @@ build
 Thumbs.db
 # ignore all the Linux system files
 desktop.ini
+=======
+.vscode
+# ignore the specific packages versions installed by the developer
+package-lock.json
+# ignore the development environment variables (if any)
+.env
+# ignore MacOS specific files
+.DS_Store
+# ignore the Windows specific files
+Thumbs.db
+# ignore the Linux specific files
+lost+found
+
+dist
+>>>>>>> 2ad4c1337e0e65dec7aa1fac4f1faae6f273fc9d

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 import { Request } from "express";
 
+=======
+>>>>>>> 2ad4c1337e0e65dec7aa1fac4f1faae6f273fc9d
 interface Pizza {
   id: number;
   title: string;
@@ -13,6 +16,7 @@ interface PizzaToUpdate {
 
 type NewPizza = Omit<Pizza, "id">;
 
+<<<<<<< HEAD
 interface Drink {
   id: number;
   title: string;
@@ -58,3 +62,18 @@ export type {
   AuthenticatedRequest,
   JwtPayload,
 };
+=======
+export type { Pizza, NewPizza, PizzaToUpdate };
+
+interface Film {
+  id: number;
+  title: string;
+  director: string;
+  duration: number;
+  budget?: number;
+  description?: string;
+  imageUrl?: string;
+}
+
+export type { Film};
+>>>>>>> 2ad4c1337e0e65dec7aa1fac4f1faae6f273fc9d
