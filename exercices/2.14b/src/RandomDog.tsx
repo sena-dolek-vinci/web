@@ -6,7 +6,9 @@ interface Dog {
 }
 
 
+// composant ce qui s'affiche à l'ecran 
 const RandomDog = () => {
+    // creation d'une memoire : dog : image du chien actuelle , setDog : pour changer l'image 
     const [dog , setDog] = useState<Dog |  undefined>(undefined);
     const [isHovered , setIsHovered] = useState(false);// isHIvered : sert a arreter 
     // le rafraichissement qd la souris est dessus 
@@ -44,11 +46,14 @@ tu peux l'utilsier dans le useEffect et dans un bouton
     const fetchDogImage = async () => {
         try {
             const response = await fetch( "https://dog.ceo/api/breeds/image/random");
+            //on attend la reponse de l'api , await bloque juste cette fonction , pas tout le programme 
             const doggy = await response.json(); 
-            setDog({
+            //on attt la conversion en json
+            setDog({ /// mise a jour du dog 
                 message: doggy.message ?? "No dog found",
                 status: doggy.status ?? "Error",
             });
+            // cas d'erreur 
         } catch (err) {
             console.error("Failed to fetch dog image", err);
             setDog({ message: "Failed to fetch dog image", status: "Error" })
@@ -91,6 +96,8 @@ tu peux l'utilsier dans le useEffect et dans un bouton
             />
         </div>
     )
+    // onMouseEnter || onMouseLeave : ce sont des evenements react qui detecte 
+    // qd la souris entre dans un element 
 }
 
 export default RandomDog;
