@@ -1,6 +1,26 @@
 # ignore all node_modules folders and nested folders & files
 node_modules
 # ignore the specific VS Code configuration parameters
+<<<<<<< HEAD
+# .vscode
+# ignore the specific packages versions installed by the developper
+package-lock.json
+# ignore the development environment variables (if any)
+.env
+# ignore all dist directories files (and subdirectories) from .gitignore
+dist/*
+# ignore all the JSON data files within data directories
+**/data/*.json
+# but (re)include specific dist directory files, e.g.
+#!frontend-essentials/step-1/dist
+build 
+# ignore all the macOS system files
+.DS_Store
+# ignore all the Windows system files
+Thumbs.db
+# ignore all the Linux system files
+desktop.ini
+=======
 .vscode
 # ignore the specific packages versions installed by the developer
 package-lock.json
@@ -14,3 +34,4 @@ Thumbs.db
 lost+found
 
 dist
+>>>>>>> 2ad4c1337e0e65dec7aa1fac4f1faae6f273fc9d
