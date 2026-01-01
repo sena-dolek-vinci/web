@@ -18,7 +18,7 @@ const defaultUsers: User[] = [
     password: bcrypt.hashSync("admin", saltRounds),
   },
 ];
-
+// se connecter 
 async function login(
   username: string,
   password: string
@@ -41,7 +41,7 @@ async function login(
 
   return authenticatedUser;
 }
-
+// s'inscrire 
 async function register(
   username: string,
   password: string
@@ -64,7 +64,7 @@ async function register(
 
   return authenticatedUser;
 }
-
+// trouver une personne avce son username 
 function readOneUserFromUsername(username: string) {
   const users = parse(jsonDbPath, defaultUsers);
   const userFound = users.find((user) => user.username === username);
@@ -72,7 +72,7 @@ function readOneUserFromUsername(username: string) {
 
   return userFound;
 }
-
+// cree un user 
 async function createOneUser(username: string, password: string) {
   const users = parse(jsonDbPath, defaultUsers);
 
